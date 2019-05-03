@@ -1,10 +1,10 @@
 <template>
   <q-layout view="hHh lpR fff">
-    <q-header elevated class="bg-pink text-white">
+    <q-header elevated class="bg-secondary text-white">
       <q-toolbar>
         <q-toolbar-title>
           <q-icon name="dehaze" />
-          &nbsp;Spis Sekcji<q-badge align="top" color="pink"
+          &nbsp;Spis Sekcji<q-badge align="top" color="secondary"
             >wersja preview</q-badge
           >
           <q-btn flat

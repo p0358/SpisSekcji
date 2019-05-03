@@ -18,8 +18,8 @@
           <q-input v-model="userInput" placeholder="Wyszukiwarka sekcji" />
           <div class="q-pb-xs" />
           Autorzy: Grzegorz Perun & Daniel Nguyen
-          <q-toggle v-model="toggle" dense color="pink">
-            <q-tooltip content-class="bg-pink"
+          <q-toggle v-model="toggle" dense color="secondary">
+            <q-tooltip content-class="bg-secondary"
               >Pokaż grupy liczące mniej niż 200 członków</q-tooltip
             >
           </q-toggle>
@@ -45,7 +45,7 @@
               {{ props.row.members }}
             </q-td>
             <q-td key="Link" :props="props">
-              <a :href="props.row.link" class="text-pink" target="_blank">{{
+              <a :href="props.row.link" class="text-secondary" target="_blank">{{
                 props.row.link.replace('https://www.facebook.com/groups', '')
               }}</a></q-td
             >
@@ -75,7 +75,7 @@
               {{ props.row.members }}
             </q-td>
             <q-td key="Link" :props="props">
-              <a :href="props.row.link" target="_blank" class="text-pink">{{
+              <a :href="props.row.link" target="_blank" class="text-secondary">{{
                 props.row.link.replace('https://www.facebook.com/groups', '')
               }}</a></q-td
             >
