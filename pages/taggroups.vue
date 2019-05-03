@@ -76,7 +76,7 @@ export default {
     }
   },
   async mounted() {
-    await this.$store.dispatch('taggroups/CHANGE_TAGGROUPS')
+    await this.$store.dispatch('taggroups/FETCH_TAGGROUPS')
     this.$store.dispatch('table/SET_LOADED')
   }
 }

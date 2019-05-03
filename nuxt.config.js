@@ -2,12 +2,8 @@ import pkg from './package'
 
 export default {
   mode: 'spa',
-
-  /*
-   ** Headers of the page
-   */
   head: {
-    title: pkg.name,
+    title: 'Spis Sekcji JBwA',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -41,36 +37,12 @@ export default {
       ]
     }
   },
-
-  /*
-   ** Customize the progress-bar color
-   */
   loading: { color: '#fff' },
-
-  /*
-   ** Global CSS
-   */
   css: [],
-
-  /*
-   ** Plugins to load before mounting the App
-   */
   plugins: ['~/plugins/vue-quasar'],
-
-  /*
-   ** Nuxt.js modules
-   */
   modules: [],
-
-  /*
-   ** Build configuration
-   */
   build: {
-    /*
-     ** You can extend webpack config here
-     */
     extend(config, ctx) {
-      // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
@@ -81,8 +53,4 @@ export default {
       }
     }
   }
-  // },
-  // router: {
-  //   base: '/SpisSekcji/'
-  // }
 }

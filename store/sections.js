@@ -5,24 +5,14 @@ export const getters = {
   sections: state => state.sections
 }
 export const mutations = {
-  CHANGE_SECTIONS(state, sections) {
+  FETCH_SECTIONS(state, sections) {
     state.sections = sections
   }
 }
 export const actions = {
-  CHANGE_SECTIONS(context) {
+  FETCH_SECTIONS(context) {
     fetch('sections.json')
       .then(response => response.json())
-      .then(output =>
-        context.commit(
-          'CHANGE_SECTIONS',
-          Array.from(output.filter(x => x.members >= 200))
-        )
-      )
-  },
-  FULL_SECTIONS(context) {
-    fetch('sections.json')
-      .then(response => response.json())
-      .then(output => context.commit('CHANGE_SECTIONS', Array.from(output)))
+      .then(output => context.commit('FETCH_SECTIONS', Array.from(output)))
   }
 }

@@ -8,7 +8,9 @@
         dense
         :columns="columns"
         :visible-columns="['Name', 'Members', 'Link']"
-        :data="sections"
+        :data="
+          toggle === false ? sections.filter(x => x.members >= 200) : sections
+        "
         :filter="userInput"
         :pagination.sync="pagination"
       >
@@ -16,15 +18,19 @@
           <q-input v-model="userInput" placeholder="Wyszukiwarka sekcji" />
           <div class="q-pb-xs" />
           Autorzy: Grzegorz Perun & Daniel Nguyen
-          <q-toggle v-model="toggle" dense color="pink" @input="toggleChanged">
+          <q-toggle v-model="toggle" dense color="pink">
             <q-tooltip content-class="bg-pink"
               >Pokaż grupy liczące mniej niż 200 członków</q-tooltip
             >
           </q-toggle>
         </template>
         <template v-slot:top-right>
-          Liczba sekcji w spisie: {{ sections.length }}<br />Ostatnia
-          aktualizacja: 03/05/2019
+          Liczba sekcji w spisie:
+          {{
+            toggle === false
+              ? sections.filter(x => x.members >= 200).length
+              : sections.length
+          }}<br />Ostatnia aktualizacja: 03/05/2019
         </template>
         <template v-slot:body="props">
           <q-tr
@@ -115,17 +121,8 @@ export default {
     }
   },
   async mounted() {
-    await this.$store.dispatch('sections/CHANGE_SECTIONS')
+    await this.$store.dispatch('sections/FETCH_SECTIONS')
     this.$store.dispatch('table/SET_LOADED')
-  },
-  methods: {
-    toggleChanged() {
-      if (this.toggle === true) {
-        this.$store.dispatch('sections/FULL_SECTIONS')
-      } else {
-        this.$store.dispatch('sections/CHANGE_SECTIONS')
-      }
-    }
   }
 }
 </script>

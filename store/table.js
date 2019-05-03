@@ -20,7 +20,7 @@ export const state = () => ({
   ],
   pagination: {
     sortBy: 'Name',
-    page: 1,
+    page: 0,
     rowsPerPage: 0,
     rowsCount: 0
   },

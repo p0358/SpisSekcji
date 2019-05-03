@@ -5,14 +5,14 @@ export const getters = {
   taggroups: state => state.taggroups
 }
 export const mutations = {
-  CHANGE_TAGGROUPS(state, taggroups) {
+  FETCH_TAGGROUPS(state, taggroups) {
     state.taggroups = taggroups
   }
 }
 export const actions = {
-  CHANGE_TAGGROUPS(context) {
+  FETCH_TAGGROUPS(context) {
     fetch('taggroups.json')
       .then(response => response.json())
-      .then(output => context.commit('CHANGE_TAGGROUPS', Array.from(output)))
+      .then(output => context.commit('FETCH_TAGGROUPS', Array.from(output)))
   }
 }
