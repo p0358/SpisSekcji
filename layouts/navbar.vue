@@ -4,9 +4,7 @@
       <q-toolbar>
         <q-toolbar-title>
           <q-icon name="dehaze" />
-          &nbsp;Spis Sekcji<q-badge align="top" color="secondary"
-            >wersja preview</q-badge
-          >
+          &nbsp;Spis Sekcji<q-badge align="top" color="secondary">v1.1</q-badge>
           <q-btn flat
             ><a
               href="https://facebook.com/groups/spis.sekcji"

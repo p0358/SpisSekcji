@@ -11,8 +11,13 @@ export const mutations = {
 }
 export const actions = {
   FETCH_TAGGROUPS(context) {
-    fetch('taggroups.json')
+    fetch('https://api.github.com/gists/7f10483c0ebd5d6358657202b04b3c3b')
       .then(response => response.json())
-      .then(output => context.commit('FETCH_TAGGROUPS', Array.from(output)))
+      .then(output =>
+        context.commit(
+          'FETCH_TAGGROUPS',
+          JSON.parse(output.files['taggroups.json'].content)
+        )
+      )
   }
 }

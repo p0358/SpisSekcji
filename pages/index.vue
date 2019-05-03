@@ -45,9 +45,14 @@
               {{ props.row.members }}
             </q-td>
             <q-td key="Link" :props="props">
-              <a :href="props.row.link" class="text-secondary" target="_blank">{{
-                props.row.link.replace('https://www.facebook.com/groups', '')
-              }}</a></q-td
+              <a
+                :href="props.row.link"
+                class="text-secondary"
+                target="_blank"
+                >{{
+                  props.row.link.replace('https://www.facebook.com/groups', '')
+                }}</a
+              ></q-td
             >
           </q-tr>
           <q-tr
@@ -75,9 +80,14 @@
               {{ props.row.members }}
             </q-td>
             <q-td key="Link" :props="props">
-              <a :href="props.row.link" target="_blank" class="text-secondary">{{
-                props.row.link.replace('https://www.facebook.com/groups', '')
-              }}</a></q-td
+              <a
+                :href="props.row.link"
+                target="_blank"
+                class="text-secondary"
+                >{{
+                  props.row.link.replace('https://www.facebook.com/groups', '')
+                }}</a
+              ></q-td
             >
           </q-tr>
         </template>
@@ -123,6 +133,8 @@ export default {
   async mounted() {
     await this.$store.dispatch('sections/FETCH_SECTIONS')
     this.$store.dispatch('table/SET_LOADED')
+    // eslint-disable-next-line no-console
+    console.log(this.sections)
   }
 }
 </script>

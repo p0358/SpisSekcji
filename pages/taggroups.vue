@@ -30,9 +30,14 @@
               {{ props.row.name }}
             </q-td>
             <q-td key="Link" :props="props">
-              <a :href="props.row.link" target="_blank" class="text-secondary">{{
-                props.row.link.replace('https://www.facebook.com/groups', '')
-              }}</a></q-td
+              <a
+                :href="props.row.link"
+                target="_blank"
+                class="text-secondary"
+                >{{
+                  props.row.link.replace('https://www.facebook.com/groups', '')
+                }}</a
+              ></q-td
             >
             <q-td key="Posting" :props="props">
               <q-icon
