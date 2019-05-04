@@ -26,10 +26,7 @@
       ><span style="color:#3F00BF;">8</span>
     </q-td>
     <q-td key="Link">
-      <a
-        href="https://www.facebook.com/groups/crossovery"
-        class="text-secondary"
-        target="_blank"
+      <a href="https://www.facebook.com/groups/crossovery" target="_blank"
         ><span style="color:#FF0000;">/</span
         ><span style="color:#E70017;">c</span
         ><span style="color:#D0002E;">r</span

@@ -14,6 +14,7 @@
               >Feedback</a
             ></q-btn
           >
+          <q-btn flat @click="$router.push('/changelog')">Zmiany</q-btn>
         </q-toolbar-title>
         <q-space />
         <q-btn flat @click="$router.push('/')">Sekcje</q-btn>
