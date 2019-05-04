@@ -50,7 +50,7 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import STTopLeft from '~/components/taggroups/STTopleft.vue'
+import STTopLeft from '~/components/taggroups/STTopLeft.vue'
 import STTopRight from '~/components/taggroups/STTopRight.vue'
 export default {
   layout: 'navbar',
