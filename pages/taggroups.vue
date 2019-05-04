@@ -13,14 +13,10 @@
         :pagination.sync="pagination"
       >
         <template v-slot:top-left>
-          <q-input v-model="userInput" placeholder="Wyszukiwarka tag-grupek" />
-          <div class="q-pb-xs" />
-          Autorzy: Grzegorz Perun & Daniel Nguyen
+          <st-topleft />
         </template>
         <template v-slot:top-right>
-          Liczba tag-grupek w spisie: {{ taggroups.length }}
-          <br />
-          Ostatnia aktualizacja: 16/04/2019
+          <st-topright />
         </template>
 
         <template v-slot:body="props">
@@ -52,25 +48,20 @@
     </div>
   </div>
 </template>
-
 <script>
 import { mapGetters } from 'vuex'
+import STTopLeft from '~/components/taggroups/STTopleft.vue'
+import STTopRight from '~/components/taggroups/STTopRight.vue'
 export default {
   layout: 'navbar',
+  components: { 'st-topleft': STTopLeft, 'st-topright': STTopRight },
   computed: {
     ...mapGetters({
       columns: 'table/columns',
       taggroups: 'taggroups/taggroups',
-      isLoaded: 'table/isLoaded'
+      isLoaded: 'table/isLoaded',
+      userInput: 'table/userInput'
     }),
-    userInput: {
-      get() {
-        return this.$store.state.table.userInput
-      },
-      set(value) {
-        this.$store.dispatch('table/SET_USERINPUT', value)
-      }
-    },
     pagination: {
       get() {
         return this.$store.state.table.pagination

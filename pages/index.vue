@@ -15,48 +15,17 @@
         :pagination.sync="pagination"
       >
         <template v-slot:top-left>
-          <q-input v-model="userInput" placeholder="Wyszukiwarka sekcji" />
-          <div class="q-pb-xs" />
-          Autorzy: Grzegorz Perun & Daniel Nguyen
-          <q-toggle v-model="toggle" dense color="secondary">
-            <q-tooltip content-class="bg-secondary"
-              >Pokaż grupy liczące mniej niż 200 członków</q-tooltip
-            >
-          </q-toggle>
+          <ss-topleft />
         </template>
         <template v-slot:top-right>
-          Liczba sekcji w spisie:
-          {{
-            toggle === false
-              ? sections.filter(x => x.members >= 200).length
-              : sections.length
-          }}<br />Ostatnia aktualizacja: 03/05/2019
+          <ss-topright />
+        </template>
+        <template v-slot:top-row>
+          <ss-extrarow />
         </template>
         <template v-slot:body="props">
           <q-tr
-            v-if="props.row.members > 10000"
-            class="bg-grey-3"
-            :props="props"
-          >
-            <q-td key="Name" :props="props">
-              <span>{{ props.row.name }}</span>
-            </q-td>
-            <q-td key="Members" :props="props">
-              {{ props.row.members }}
-            </q-td>
-            <q-td key="Link" :props="props">
-              <a
-                :href="props.row.link"
-                class="text-secondary"
-                target="_blank"
-                >{{
-                  props.row.link.replace('https://www.facebook.com/groups', '')
-                }}</a
-              ></q-td
-            >
-          </q-tr>
-          <q-tr
-            v-else-if="props.row.members === 2137"
+            v-if="props.row.members === 2137"
             style="background-image: url('https://i.imgur.com/4uYxy3B.jpg');"
             :props="props"
           >
@@ -72,18 +41,40 @@
               }}</a></q-td
             >
           </q-tr>
-          <q-tr v-else>
+          <q-tr
+            v-else-if="props.row.members >= 10000"
+            style="background-color: #F2F2F2"
+            :props="props"
+          >
             <q-td key="Name" :props="props">
               <span>{{ props.row.name }}</span>
             </q-td>
             <q-td key="Members" :props="props">
-              {{ props.row.members }}
+              <span>{{ props.row.members }}</span>
             </q-td>
             <q-td key="Link" :props="props">
               <a
                 :href="props.row.link"
-                target="_blank"
                 class="text-secondary"
+                target="_blank"
+                >{{
+                  props.row.link.replace('https://www.facebook.com/groups', '')
+                }}</a
+              ></q-td
+            >
+          </q-tr>
+          <q-tr v-else :props="props">
+            <q-td key="Name" :props="props">
+              <span>{{ props.row.name }}</span>
+            </q-td>
+            <q-td key="Members" :props="props">
+              <span>{{ props.row.members }}</span>
+            </q-td>
+            <q-td key="Link" :props="props">
+              <a
+                :href="props.row.link"
+                class="text-secondary"
+                target="_blank"
                 >{{
                   props.row.link.replace('https://www.facebook.com/groups', '')
                 }}</a
@@ -97,30 +88,24 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import SSExtraRow from '~/components/SSExtraRow.vue'
+import SSTopLeft from '~/components/sections/SSTopLeft.vue'
+import SSTopRight from '~/components/sections/SSTopRight.vue'
 export default {
   layout: 'navbar',
+  components: {
+    'ss-extrarow': SSExtraRow,
+    'ss-topleft': SSTopLeft,
+    'ss-topright': SSTopRight
+  },
   computed: {
     ...mapGetters({
       columns: 'table/columns',
       sections: 'sections/sections',
-      isLoaded: 'table/isLoaded'
+      isLoaded: 'table/isLoaded',
+      toggle: 'table/toggle',
+      userInput: 'table/userInput'
     }),
-    toggle: {
-      get() {
-        return this.$store.state.table.toggle
-      },
-      set(value) {
-        this.$store.dispatch('table/SET_TOGGLE', value)
-      }
-    },
-    userInput: {
-      get() {
-        return this.$store.state.table.userInput
-      },
-      set(value) {
-        this.$store.dispatch('table/SET_USERINPUT', value)
-      }
-    },
     pagination: {
       get() {
         return this.$store.state.table.pagination
@@ -133,8 +118,6 @@ export default {
   async mounted() {
     await this.$store.dispatch('sections/FETCH_SECTIONS')
     this.$store.dispatch('table/SET_LOADED')
-    // eslint-disable-next-line no-console
-    console.log(this.sections)
   }
 }
 </script>
