@@ -4,7 +4,7 @@
       <q-toolbar>
         <q-toolbar-title>
           <q-icon name="dehaze" />
-          &nbsp;Spis Sekcji<q-badge align="top" color="secondary">v1.2</q-badge>
+          &nbsp;Spis Sekcji<q-badge align="top" color="secondary">v1.3</q-badge>
           <q-btn flat
             ><a
               href="https://facebook.com/groups/spis.sekcji"
@@ -15,6 +15,7 @@
             ></q-btn
           >
           <q-btn flat @click="$router.push('/changelog')">Zmiany</q-btn>
+          <q-btn flat @click="$router.push('/api')">Api</q-btn>
         </q-toolbar-title>
         <q-space />
         <q-btn flat @click="$router.push('/')">Sekcje</q-btn>
