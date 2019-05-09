@@ -51,6 +51,14 @@ export default {
           exclude: /(node_modules)/
         })
       }
+    },
+    filenames: {
+      app: '[name].js',
+      chunk: '[name].js',
+      css: '[name].css',
+      img: '[path][name].[ext]',
+      font: '[path][name].[ext]',
+      video: '[path][name].[ext]'
     }
   }
 }
