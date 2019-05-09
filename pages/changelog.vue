@@ -1,6 +1,15 @@
 <template>
   <div class="row q-pa-lg q-col-gutter-y-md justify-center">
     <q-timeline color="secondary">
+      <q-timeline-entry title="v1.3.1" subtitle="09/05/2019">
+        <div>
+          <q-icon
+            name="add"
+            color="secondary"
+            style="font-size: 20px;"
+          />&nbsp;<span>Poprawki w zakładce API</span>
+        </div>
+      </q-timeline-entry>
       <q-timeline-entry title="v1.3" subtitle="05/05/2019">
         <div>
           <q-icon
