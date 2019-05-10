@@ -5,7 +5,9 @@
       toggle === false
         ? sections.filter(x => x.members >= 200).length
         : sections.length
-    }}<br />Ostatnia aktualizacja: 03/05/2019
+    }}
+    <br />
+    Ostatnia aktualizacja: {{ lastUpdateDate }}
   </div>
 </template>
 
@@ -13,7 +15,11 @@
 import { mapGetters } from 'vuex'
 export default {
   computed: {
-    ...mapGetters({ sections: 'sections/sections', toggle: 'table/toggle' })
+    ...mapGetters({
+      sections: 'sections/sections',
+      toggle: 'table/toggle',
+      lastUpdateDate: 'sections/lastUpdateDate'
+    })
   }
 }
 </script>

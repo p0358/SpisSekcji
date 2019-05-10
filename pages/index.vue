@@ -36,10 +36,10 @@
               <span class="text-white">{{ props.row.members }}</span>
             </q-td>
             <q-td key="Link" :props="props">
-              <a :href="props.row.link" class="text-white" target="_blank">{{
-                props.row.link.replace('https://www.facebook.com/groups', '')
-              }}</a></q-td
-            >
+              <a :href="props.row.link" class="text-white" target="_blank">
+                {{ props.row.link.replace('https://facebook.com/groups', '') }}
+              </a>
+            </q-td>
           </q-tr>
           <q-tr
             v-else-if="props.row.members >= 10000"
@@ -53,15 +53,10 @@
               <span>{{ props.row.members }}</span>
             </q-td>
             <q-td key="Link" :props="props">
-              <a
-                :href="props.row.link"
-                class="text-secondary"
-                target="_blank"
-                >{{
-                  props.row.link.replace('https://www.facebook.com/groups', '')
-                }}</a
-              ></q-td
-            >
+              <a :href="props.row.link" class="text-secondary" target="_blank">
+                {{ props.row.link.replace('https://facebook.com/groups', '') }}
+              </a>
+            </q-td>
           </q-tr>
           <q-tr v-else :props="props">
             <q-td key="Name" :props="props">
@@ -71,15 +66,10 @@
               <span>{{ props.row.members }}</span>
             </q-td>
             <q-td key="Link" :props="props">
-              <a
-                :href="props.row.link"
-                class="text-secondary"
-                target="_blank"
-                >{{
-                  props.row.link.replace('https://www.facebook.com/groups', '')
-                }}</a
-              ></q-td
-            >
+              <a :href="props.row.link" class="text-secondary" target="_blank">
+                {{ props.row.link.replace('https://facebook.com/groups', '') }}
+              </a>
+            </q-td>
           </q-tr>
         </template>
       </q-table>
