@@ -72,13 +72,13 @@ export default {
     async runScript() {
       let sections
       await fetch(
-        'https://api.github.com/gists/a3bdcc6a27d9410f97685b5b6cee5b69'
+        'https://api.github.com/gists/e6fe59c222ff344652706429007c018b'
       )
         .then(response => response.json())
-        .then(
-          output =>
-            (sections = JSON.parse(output.files['sections.json'].content))
+        .then(output =>
+          JSON.parse(output.files['sectionspreview.json'].content)
         )
+        .then(output => (sections = Array.from(output.sections)))
 
       this.$store.dispatch(
         'api/SET_RESULT',

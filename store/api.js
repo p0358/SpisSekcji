@@ -27,27 +27,22 @@ export const actions = {
     context.commit('SET_RESULT', result)
   },
   SET_SECTIONSLINK(context) {
-    fetch('https://api.github.com/gists/a3bdcc6a27d9410f97685b5b6cee5b69')
+    fetch('https://api.github.com/gists/e6fe59c222ff344652706429007c018b')
       .then(response => response.json())
       .then(output =>
         context.commit(
           'SET_SECTIONSLINK',
-          `https://gist.githubusercontent.com/Mensix/a3bdcc6a27d9410f97685b5b6cee5b69/raw/${
-            output.files['sections.json'].raw_url
-          }
-          /sections.json`
+          output.files['sectionspreview.json'].raw_url
         )
       )
   },
   SET_TAGGROUPSLINK(context) {
-    fetch('https://api.github.com/gists/7f10483c0ebd5d6358657202b04b3c3b')
+    fetch('https://api.github.com/gists/834ab2b54e4cbc39366402e619137d77')
       .then(response => response.json())
       .then(output =>
         context.commit(
           'SET_TAGGROUPSLINK',
-          `https://gist.githubusercontent.com/Mensix/7f10483c0ebd5d6358657202b04b3c3b/raw/
-            ${output.files['taggroups.json'].raw_url}}
-            /taggroups.json`
+          output.files['taggroupspreview.json'].raw_url
         )
       )
   }
