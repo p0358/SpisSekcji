@@ -34,6 +34,28 @@
           <Nuxt />
         </div>
       </div>
+
+      <q-page-sticky position="bottom-right" :offset="[16, 16]">
+        <q-btn
+          fab
+          icon="keyboard_arrow_up"
+          color="secondary"
+          @click="scrollToTop()"
+        />
+      </q-page-sticky>
     </q-page-container>
   </q-layout>
 </template>
+
+<script>
+export default {
+  methods: {
+    scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+  }
+};
+</script>
