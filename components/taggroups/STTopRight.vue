@@ -8,13 +8,13 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters({
-      taggroups: 'taggroups/taggroups',
-      lastUpdateDate: 'taggroups/lastUpdateDate'
+      taggroups: "taggroups/taggroups",
+      lastUpdateDate: "taggroups/lastUpdateDate"
     })
   }
-}
+};
 </script>
