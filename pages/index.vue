@@ -6,7 +6,7 @@
       flat
       dense
       :columns="columns"
-      :visible-columns="['Name', 'Members', 'Link']"
+      :visible-columns="['Name', 'Members', 'Link', 'Join']"
       :data="
         toggle === false ? sections.filter(x => x.members >= 200) : sections
       "
@@ -32,9 +32,24 @@
             <span class="text-white">{{ props.row.members }}</span>
           </q-td>
           <q-td key="Link" :props="props">
-            <a :href="props.row.link" class="text-white" target="_blank">
-              {{ props.row.link.replace("https://facebook.com/groups", "") }}
-            </a>
+            <a :href="props.row.link" class="text-white" target="_blank">{{
+              props.row.link.replace("https://facebook.com/groups", "")
+            }}</a>
+          </q-td>
+          <q-td key="Join" :props="props">
+            <span>
+              <a
+                :href="
+                  `https://facebook.com/groups/sync/membership_criteria_answer/edit/?group_id=${props.row.link.replace(
+                    'https://facebook.com/groups/',
+                    ''
+                  )}&source=mobile_group_join&redirect_to_mall_on_save=1&ref=104&_rdr`
+                "
+                class="text-secondary"
+                target="_blank"
+                >Dołącz</a
+              >
+            </span>
           </q-td>
         </q-tr>
         <q-tr
@@ -49,9 +64,24 @@
             <span>{{ props.row.members }}</span>
           </q-td>
           <q-td key="Link" :props="props">
-            <a :href="props.row.link" class="text-secondary" target="_blank">
-              {{ props.row.link.replace("https://facebook.com/groups", "") }}
-            </a>
+            <a :href="props.row.link" class="text-secondary" target="_blank">{{
+              props.row.link.replace("https://facebook.com/groups", "")
+            }}</a>
+          </q-td>
+          <q-td key="Join" :props="props">
+            <span>
+              <a
+                :href="
+                  `https://facebook.com/groups/sync/membership_criteria_answer/edit/?group_id=${props.row.link.replace(
+                    'https://facebook.com/groups/',
+                    ''
+                  )}&source=mobile_group_join&redirect_to_mall_on_save=1&ref=104&_rdr`
+                "
+                class="text-secondary"
+                target="_blank"
+                >Dołącz</a
+              >
+            </span>
           </q-td>
         </q-tr>
         <q-tr v-else :props="props">
@@ -62,9 +92,24 @@
             <span>{{ props.row.members }}</span>
           </q-td>
           <q-td key="Link" :props="props">
-            <a :href="props.row.link" class="text-secondary" target="_blank">
-              {{ props.row.link.replace("https://facebook.com/groups", "") }}
-            </a>
+            <a :href="props.row.link" class="text-secondary" target="_blank">{{
+              props.row.link.replace("https://facebook.com/groups", "")
+            }}</a>
+          </q-td>
+          <q-td key="Join" :props="props">
+            <span>
+              <a
+                :href="
+                  `https://facebook.com/groups/sync/membership_criteria_answer/edit/?group_id=${props.row.link.replace(
+                    'https://facebook.com/groups/',
+                    ''
+                  )}&source=mobile_group_join&redirect_to_mall_on_save=1&ref=104&_rdr`
+                "
+                class="text-secondary"
+                target="_blank"
+                >Dołącz</a
+              >
+            </span>
           </q-td>
         </q-tr>
       </template>

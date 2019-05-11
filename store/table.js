@@ -16,7 +16,8 @@ export const state = () => ({
       sortable: true
     },
     { name: "Link", label: "Link", field: "link", align: "left" },
-    { name: "Posting", label: "Aktywna", field: "posting", align: "left" }
+    { name: "Join", label: "Dołącz", align: "center" },
+    { name: "Posting", label: "Aktywna", field: "posting", align: "center" }
   ],
   pagination: {
     sortBy: "Name",
