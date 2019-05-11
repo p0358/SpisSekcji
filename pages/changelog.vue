@@ -5,15 +5,17 @@
         <div>
           <q-icon name="add" color="secondary" style="font-size: 20px;" />&nbsp;
           <span>Zmieniono wygląd spisu</span>
+          <br />
+          <q-icon name="add" color="secondary" style="font-size: 20px;" />&nbsp;
+          <span>Dodano przycisk pozwalający na przejście na górę strony</span>
         </div>
       </q-timeline-entry>
       <q-timeline-entry title="v1.3.2" subtitle="10/05/2019">
         <div>
           <q-icon name="add" color="secondary" style="font-size: 20px;" />&nbsp;
-          <span
-            >Zmieniono sposób aktualizowania daty ostatniej aktualizacji
-            spisu</span
-          >
+          <span>
+            Zmieniono sposób aktualizowania daty ostatniej aktualizacji spisu
+          </span>
         </div>
       </q-timeline-entry>
       <q-timeline-entry title="v1.3.1" subtitle="09/05/2019">
@@ -34,9 +36,10 @@
           <span>Poprawki w kodzie</span>
           <br />
           <q-icon name="add" color="secondary" style="font-size: 20px;" />&nbsp;
-          <span>
-            Dodano stały pierwszy wiersz w spisie sekcji w celach reklamowych
-          </span>
+          <span
+            >Dodano stały pierwszy wiersz w spisie sekcji w celach
+            reklamowych</span
+          >
           <br />
           <q-icon name="add" color="secondary" style="font-size: 20px;" />&nbsp;
           <span>
