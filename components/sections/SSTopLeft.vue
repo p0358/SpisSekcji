@@ -1,6 +1,10 @@
 <template>
   <div>
-    <q-input v-model="userInput" placeholder="Wyszukiwarka sekcji" />
+    <q-input
+      v-model="userInput"
+      color="secondary"
+      placeholder="Wyszukiwarka sekcji"
+    />
     <div class="q-pb-xs" />
     Autorzy: Grzegorz Perun & Daniel Nguyen
     <q-toggle v-model="toggle" dense color="secondary">
@@ -16,20 +20,20 @@ export default {
   computed: {
     toggle: {
       get() {
-        return this.$store.state.table.toggle
+        return this.$store.state.table.toggle;
       },
       set(value) {
-        this.$store.dispatch('table/SET_TOGGLE', value)
+        this.$store.dispatch("table/SET_TOGGLE", value);
       }
     },
     userInput: {
       get() {
-        return this.$store.state.table.userInput
+        return this.$store.state.table.userInput;
       },
       set(value) {
-        this.$store.dispatch('table/SET_USERINPUT', value)
+        this.$store.dispatch("table/SET_USERINPUT", value);
       }
     }
   }
-}
+};
 </script>

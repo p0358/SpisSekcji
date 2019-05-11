@@ -1,6 +1,12 @@
 <template>
-  <div class="row q-pa-lg q-col-gutter-y-md justify-center">
+  <div class="row justify-center">
     <q-timeline color="secondary">
+      <q-timeline-entry title="v1.4" subtitle="11/05/2019">
+        <div>
+          <q-icon name="add" color="secondary" style="font-size: 20px;" />&nbsp;
+          <span>Zmieniono wygląd spisu</span>
+        </div>
+      </q-timeline-entry>
       <q-timeline-entry title="v1.3.2" subtitle="10/05/2019">
         <div>
           <q-icon name="add" color="secondary" style="font-size: 20px;" />&nbsp;
@@ -63,6 +69,6 @@
 
 <script>
 export default {
-  layout: 'navbar'
-}
+  layout: "navbar"
+};
 </script>

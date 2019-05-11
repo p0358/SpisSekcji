@@ -12,14 +12,14 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters({
-      sections: 'sections/sections',
-      toggle: 'table/toggle',
-      lastUpdateDate: 'sections/lastUpdateDate'
+      sections: "sections/sections",
+      toggle: "table/toggle",
+      lastUpdateDate: "sections/lastUpdateDate"
     })
   }
-}
+};
 </script>
