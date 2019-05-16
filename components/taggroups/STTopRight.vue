@@ -8,8 +8,11 @@
       taggroups.filter(
         x =>
           !userInput ||
-          (x.name.toLowerCase().includes(userInputLowerCase) ||
-            x.link.toLowerCase().includes(userInputLowerCase))
+          /*(x.name.toLowerCase().includes(userInput.toLowerCase()) ||
+            x.link.toLowerCase().includes(userInput.toLowerCase()))*/
+          Object.values(x).find(s =>
+            (s + "").toLowerCase().includes(userInput.toLowerCase())
+          )
       ).length
     }}
     <br />
