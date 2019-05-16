@@ -1,10 +1,22 @@
 <template>
   <div>
-    Liczba sekcji w spisie:
+    Liczba sekcji w spisie: {{ sections.length }}
+    <br />
+    Wyświetlanych:
     {{
       toggle === false
-        ? sections.filter(x => x.members >= 200).length
-        : sections.length
+        ? sections
+            .filter(
+              x =>
+                !userInput ||
+                x.name.toLowerCase().includes(userInput.toLowerCase())
+            )
+            .filter(x => x.members >= 200).length
+        : sections.filter(
+            x =>
+              !userInput ||
+              x.name.toLowerCase().includes(userInput.toLowerCase())
+          ).length
     }}
     <br />
     Ostatnia aktualizacja: {{ lastUpdateDate }}
@@ -18,7 +30,8 @@ export default {
     ...mapGetters({
       sections: "sections/sections",
       toggle: "table/toggle",
-      lastUpdateDate: "sections/lastUpdateDate"
+      lastUpdateDate: "sections/lastUpdateDate",
+      userInput: "table/userInput"
     })
   }
 };

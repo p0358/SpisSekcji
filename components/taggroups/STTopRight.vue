@@ -3,6 +3,14 @@
     Liczba tag-grupek w spisie:
     {{ taggroups.length }}
     <br />
+    Wyświetlanych:
+    {{
+      taggroups.filter(
+        x =>
+          !userInput || x.name.toLowerCase().includes(userInput.toLowerCase())
+      ).length
+    }}
+    <br />
     Ostatnia aktualizacja: {{ lastUpdateDate }}
   </div>
 </template>
@@ -13,7 +21,8 @@ export default {
   computed: {
     ...mapGetters({
       taggroups: "taggroups/taggroups",
-      lastUpdateDate: "taggroups/lastUpdateDate"
+      lastUpdateDate: "taggroups/lastUpdateDate",
+      userInput: "table/userInput"
     })
   }
 };
