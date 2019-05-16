@@ -7,7 +7,9 @@
     {{
       taggroups.filter(
         x =>
-          !userInput || x.name.toLowerCase().includes(userInput.toLowerCase())
+          !userInput ||
+          (x.name.toLowerCase().includes(userInputLowerCase) ||
+            x.link.toLowerCase().includes(userInputLowerCase))
       ).length
     }}
     <br />

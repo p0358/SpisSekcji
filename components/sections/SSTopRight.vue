@@ -9,13 +9,15 @@
             .filter(
               x =>
                 !userInput ||
-                x.name.toLowerCase().includes(userInput.toLowerCase())
+                (x.name.toLowerCase().includes(userInput.toLowerCase()) ||
+                  x.link.toLowerCase().includes(userInput.toLowerCase()))
             )
             .filter(x => x.members >= 200).length
         : sections.filter(
             x =>
               !userInput ||
-              x.name.toLowerCase().includes(userInput.toLowerCase())
+              (x.name.toLowerCase().includes(userInput.toLowerCase()) ||
+                x.link.toLowerCase().includes(userInput.toLowerCase()))
           ).length
     }}
     <br />
